@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import ItemDetail from './components/ItemDetail';
 import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
@@ -18,6 +19,14 @@ function App() {
           element={
             <PrivateRoute>
               <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/items/:id"
+          element={
+            <PrivateRoute>
+              <ItemDetail />
             </PrivateRoute>
           }
         />

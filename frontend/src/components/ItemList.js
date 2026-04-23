@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/ItemList.css';
 
 const ItemList = ({ items, onDelete, onEdit, currentUserId }) => {
+  const navigate = useNavigate();
   if (items.length === 0) {
     return (
       <div className="empty-state">
@@ -69,7 +71,10 @@ const ItemList = ({ items, onDelete, onEdit, currentUserId }) => {
                 </button>
               </>
             )}
-            <button className="btn btn-sm btn-info">
+            <button 
+              className="btn btn-sm btn-info"
+              onClick={() => navigate(`/items/${item._id}`)}
+            >
               View Details
             </button>
           </div>
