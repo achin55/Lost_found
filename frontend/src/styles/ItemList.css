@@ -1,41 +1,108 @@
-/* Item List Styles */
+/* Item List Styles - Professional & Interactive */
+/* Most styles are defined in Dashboard.css for consistency */
+/* This file contains ItemList-specific enhancements */
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .item-card {
   background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border-left: 4px solid #667eea;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-left: 5px solid #667eea;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
 }
 
 .item-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.25);
 }
 
 .item-card.lost {
-  border-left-color: #dc3545;
+  border-left-color: #ff6b6b;
+}
+
+.item-card.lost:hover {
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.2);
 }
 
 .item-card.found {
-  border-left-color: #28a745;
+  border-left-color: #51cf66;
+}
+
+.item-card.found:hover {
+  box-shadow: 0 15px 40px rgba(81, 207, 102, 0.2);
 }
 
 .item-actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   margin-top: 15px;
+  flex-wrap: wrap;
 }
 
 .item-actions .btn {
-  font-size: 12px;
-  padding: 6px 12px;
+  font-size: 13px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  min-width: 80px;
+  text-transform: capitalize;
 }
 
-.items-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+.item-actions .btn-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.item-actions .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.item-actions .btn-danger {
+  background: linear-gradient(135deg, #ff6b6b, #ff8787);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.item-actions .btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
 }
 
 @media (max-width: 768px) {
