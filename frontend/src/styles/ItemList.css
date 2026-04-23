@@ -1,0 +1,54 @@
+/* Item List Styles */
+.item-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 4px solid #667eea;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.item-card.lost {
+  border-left-color: #dc3545;
+}
+
+.item-card.found {
+  border-left-color: #28a745;
+}
+
+.item-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.item-actions .btn {
+  font-size: 12px;
+  padding: 6px 12px;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item-actions {
+    flex-wrap: wrap;
+  }
+
+  .item-actions .btn {
+    flex: 1;
+    min-width: 70px;
+  }
+}

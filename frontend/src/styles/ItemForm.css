@@ -1,0 +1,75 @@
+/* Item Form Styles */
+.item-form-container {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  border-top: 4px solid #667eea;
+}
+
+.item-form-container h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.item-form-container .form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.item-form-container .form-control,
+.item-form-container .form-select {
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  transition: border-color 0.3s;
+}
+
+.item-form-container .form-control:focus,
+.item-form-container .form-select:focus {
+  border-color: #667eea;
+  box-shadow: none;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.form-actions .btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.form-actions .btn-primary:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #6a4291 100%);
+}
+
+.form-actions .btn-secondary {
+  background-color: #999;
+  border: none;
+}
+
+.form-actions .btn-secondary:hover {
+  background-color: #777;
+}
+
+@media (max-width: 768px) {
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}

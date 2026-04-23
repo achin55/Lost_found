@@ -1,0 +1,24 @@
+{
+  "name": "lost-found-system",
+  "version": "1.0.0",
+  "description": "Lost & Found Item Management System - MERN Stack",
+  "scripts": {
+    "backend": "cd backend && npm start",
+    "frontend": "cd frontend && npm start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build-all": "cd backend && npm install && cd ../frontend && npm install && npm run build"
+  },
+  "keywords": [
+    "MERN",
+    "React",
+    "Node.js",
+    "MongoDB",
+    "Express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
