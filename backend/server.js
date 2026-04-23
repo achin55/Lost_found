@@ -5,8 +5,30 @@ const cors = require('cors');
 
 const app = express();
 
+// CORS Configuration for Production
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5000',
+  'https://lost-found-frontend-dne2.onrender.com',
+  process.env.FRONTEND_URL || 'http://localhost:3000'
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -30,9 +52,21 @@ connectDB();
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/items', require('./routes/itemRoutes'));
 
-// Health Check Route
+// Health Check Route with Success Message
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ message: 'Server is running' });
+  res.status(200).json({ 
+    status: 'success',
+    message: '✓ Backend API is running and ready!',
+    environment: process.env.NODE_ENV || 'development',
+    timestamp: new Date().toISOString(),
+    database: 'MongoDB connected',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth',
+      items: '/api/items',
+      health: '/api/health'
+    }
+  });
 });
 
 // Error handling middleware
